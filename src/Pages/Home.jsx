@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "../Components/Button";
+import { useSelector } from "react-redux";
 
 
 const Home = () => {
 
-    const users = [
-        { id: 1, name: 'omarjaber', email: 'jaberjabed@gamil.com' },
-        { id: 2, name: 'jaberomar', email: 'jaberomar@gamil.com' }
-    ]
+    const users = useSelector(state => state.users);
 
     const handleRemoveUser = (id) => {
         console.log(id);
