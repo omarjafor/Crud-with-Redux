@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 import Button from "../Components/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUser, removeAll } from "../Redux/Slices/UserSlice";
 
 
 const Home = () => {
 
     const users = useSelector(state => state.users);
+    const dispatch = useDispatch();
 
     const handleRemoveUser = (id) => {
-        console.log(id);
+        dispatch(deleteUser(id));
+    }
+
+    const removeAllUsers = () => {
+        dispatch(removeAll())
     }
 
     const renderCard = () => users.map(user => (
@@ -42,6 +48,7 @@ const Home = () => {
             <div className="grid gap-5 md:grid-cols-2">
                 {users.length ? renderCard() : <p className="text-center col-span-2 text-gray-700 font-semibold">No User</p>}
             </div>
+            <Button onClick={removeAllUsers}>Delete All</Button>
         </div>
     );
 };
