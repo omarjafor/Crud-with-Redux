@@ -44,11 +44,7 @@ const Home = () => {
     )
     return (
         <div>
-            <Link to='addUser'><Button>Add User</Button></Link>
-            <div className="grid gap-5 md:grid-cols-2">
-                {users.length ? renderCard() : <p className="text-center col-span-2 text-gray-700 font-semibold">No User</p>}
-            </div>
-            <Button onClick={removeAllUsers}>Delete All</Button>
+            
         </div>
     );
 };
