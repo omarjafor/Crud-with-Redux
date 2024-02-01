@@ -2,12 +2,21 @@ import { Link } from "react-router-dom";
 import Button from "../Components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, removeAll } from "../Redux/Slices/UserSlice";
+import { useEffect } from "react";
 
 
 const Home = () => {
 
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
+
+    useEffect( () => {
+        fetch('http://localhost:5000/users')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    } , [])
 
     const handleRemoveUser = (id) => {
         dispatch(deleteUser(id));
