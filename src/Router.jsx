@@ -3,6 +3,7 @@ import Root from "./Root";
 import Home from "./Pages/Home";
 import AddUser from "./Pages/AddUser";
 import EditUser from "./Pages/EditUser";
+import AddAdmin from "./Pages/AddAdmin";
 
 const Router = createBrowserRouter([
     {
@@ -19,6 +20,14 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/editUser/:id',
+                element: <EditUser></EditUser>
+            },
+            {
+                path: '/addAdmin',
+                element: <AddAdmin></AddAdmin>
+            },
+            {
+                path: '/editAdmin/:id',
                 element: <EditUser></EditUser>
             }
         ]

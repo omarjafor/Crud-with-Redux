@@ -96,7 +96,7 @@ const Home = () => {
             </div>
             <div>
                 <h1 className="text-2xl font-bold text-center text-indigo-600">Mern Crud with Redux</h1>
-                <Link to='addUser'><Button>Add User</Button></Link>
+                <Link to='addAdmin'><Button>Add User</Button></Link>
                 <div className="grid gap-5 md:grid-cols-2">
                     {admin.length ? renderAdmin() : <p className="text-center col-span-2 text-gray-700 font-semibold">No Admin</p>}
                 </div>
