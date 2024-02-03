@@ -22,7 +22,6 @@ const AddAdmin = () => {
             email: values.email
         }));
         navigate('/');
-        console.log(values.name, values.email);
     }
 
     return (
