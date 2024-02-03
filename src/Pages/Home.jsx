@@ -57,9 +57,12 @@ const Home = () => {
 
     const renderAdmin = () => admin.map(user => (
         <div className="bg-gray-300 p-5 flex items-center justify-between" key={user._id}>
-            <div>
-                <h3 className="font-bold text-lg text-gray-700">{user.name}</h3>
-                <span className="font-normal text-gray-600">{user.email}</span>
+            <div className="flex gap-4">
+                <img src={user.img} alt="" className="h-24 w-24"/>
+                <div>
+                    <h3 className="font-bold text-lg text-gray-700">{user.name}</h3>
+                    <span className="font-normal text-gray-600">{user.email}</span>
+                </div>
             </div>
             <div className="flex gap-4">
                 <Link to={`editUser/${user.id}`}>
