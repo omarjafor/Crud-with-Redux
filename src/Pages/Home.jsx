@@ -10,7 +10,7 @@ const Home = () => {
 
     const users = useSelector(state => state.users);
     const admin = useSelector(state => state.admin);
-    console.log(admin);
+    
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -97,7 +97,7 @@ const Home = () => {
                 <div className="grid gap-5 md:grid-cols-2">
                     {admin.length ? renderAdmin() : <p className="text-center col-span-2 text-gray-700 font-semibold">No Admin</p>}
                 </div>
-                <Button onClick={}>Delete All</Button>
+                <Button onClick={removeAllUsers}>Delete All</Button>
             </div>
         </div>
     );
