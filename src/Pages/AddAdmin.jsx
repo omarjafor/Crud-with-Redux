@@ -17,10 +17,20 @@ const AddAdmin = () => {
 
     const handleAddAdmin = () => {
         setValues({ name: '', email: '' });
-        dispatch(addAdmin({
-            name: values.name,
-            email: values.email
-        }));
+        const name = values.name;
+        const email = values.email;
+        const admin = { name, email }
+        fetch('http://localhost:5000/post', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(admin)
+        })
+        .then(res => res.json())
+        .then(data => {
+            dispatch(addAdmin(data))
+        })
         navigate('/');
     }
 
