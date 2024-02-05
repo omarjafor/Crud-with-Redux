@@ -16,6 +16,7 @@ const adminSlice = createSlice({
         deleteAdmin: (state, action) => {
             const id = action.payload;
             state = state.filter(u => u._id != id);
+            return state;
         }
     }
 });

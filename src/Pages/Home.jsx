@@ -3,7 +3,7 @@ import Button from "../Components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, removeAll } from "../Redux/Slices/UserSlice";
 import { useEffect } from "react";
-import { getUsers } from "../Redux/Slices/adminSlice";
+import { deleteAdmin, getUsers } from "../Redux/Slices/adminSlice";
 
 
 const Home = () => {
@@ -30,7 +30,14 @@ const Home = () => {
     }
 
     const handleDelete = (id) => {
-        
+        fetch(`http://localhost:5000/delete/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            dispatch(deleteAdmin(id))
+        })
     }
 
     const renderCard = () => users.map(user => (
