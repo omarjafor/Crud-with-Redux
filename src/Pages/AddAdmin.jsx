@@ -29,6 +29,7 @@ const AddAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             dispatch(addAdmin(data))
         })
         navigate('/');
