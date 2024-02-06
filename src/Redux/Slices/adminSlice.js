@@ -10,9 +10,9 @@ const adminSlice = createSlice({
         addAdmin: (state, action) => {
             state.push(action.payload);
         },
-        // updateAdmin: (state, action) => {
+        updateAdmin: (state, action) => {
 
-        // },
+        },
         deleteAdmin: (state, action) => {
             const id = action.payload;
             state = state.filter(u => u._id != id);
