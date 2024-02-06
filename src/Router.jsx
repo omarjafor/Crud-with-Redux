@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import AddUser from "./Pages/AddUser";
 import EditUser from "./Pages/EditUser";
 import AddAdmin from "./Pages/AddAdmin";
+import UpdateAdmin from "./Pages/UpdateAdmin";
 
 const Router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/editAdmin/:id',
-                element: <EditUser></EditUser>
+                element: <UpdateAdmin></UpdateAdmin>
             }
         ]
     },
