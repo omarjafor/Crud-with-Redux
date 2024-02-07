@@ -1,14 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../Components/Button";
 import TextField from "../Components/TextField";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
-import { updateAdmin } from "../Redux/Slices/adminSlice";
 
 
 const UpdateAdmin = () => {
     const params = useParams();
-    const dispatch = useDispatch();
     const admin = useSelector(state => state.admin);
     const exAdmin = admin.filter(ad => ad._id === params.id)
     const { _id, name, email } = exAdmin[0];
@@ -27,7 +25,6 @@ const UpdateAdmin = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            dispatch(updateAdmin({_id, newAdmin}))
             navigate('/')
         })
     }
