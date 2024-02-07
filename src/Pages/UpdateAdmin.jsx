@@ -3,6 +3,7 @@ import Button from "../Components/Button";
 import TextField from "../Components/TextField";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { updateAdmin } from "../Redux/Slices/adminSlice";
 
 
 const UpdateAdmin = () => {
@@ -10,12 +11,25 @@ const UpdateAdmin = () => {
     const dispatch = useDispatch();
     const admin = useSelector(state => state.admin);
     const exAdmin = admin.filter(ad => ad._id === params.id)
-    const { name, email } = exAdmin[0];
+    const { _id, name, email } = exAdmin[0];
     const navigate = useNavigate();
     const [values, setValues] = useState({ name, email });
 
     const handleUpdateAdmin = () => {
-        fetch()
+        const newAdmin = { name: values.name, email : values.email }
+        fetch(`http://localhost:5000/update/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newAdmin)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            dispatch(updateAdmin({_id, newAdmin}))
+            navigate('/')
+        })
     }
 
     return (

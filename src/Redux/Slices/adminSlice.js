@@ -11,8 +11,7 @@ const adminSlice = createSlice({
             state.push(action.payload);
         },
         updateAdmin: (state, action) => {
-            const index = state.findIndex(x => x._id === action.payload)
-            console.log(index);
+            
         },
         deleteAdmin: (state, action) => {
             const id = action.payload;
