@@ -12,7 +12,7 @@ const UpdateAdmin = () => {
     const { _id, name, email } = exAdmin[0];
     const navigate = useNavigate();
     const [values, setValues] = useState({ name, email });
-
+   
     const handleUpdateAdmin = () => {
         const newAdmin = { name: values.name, email : values.email }
         fetch(`http://localhost:5000/update/${_id}`, {
