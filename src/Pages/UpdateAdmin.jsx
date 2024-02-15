@@ -13,21 +13,7 @@ const UpdateAdmin = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({ name, email });
    
-    const handleUpdateAdmin = () => {
-        const newAdmin = { name: values.name, email : values.email }
-        fetch(`http://localhost:5000/update/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(newAdmin)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            navigate('/')
-        })
-    }
+
 
     return (
         <div className="mt-10 max-w-xl mx-auto">
