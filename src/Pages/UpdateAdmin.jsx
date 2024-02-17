@@ -4,7 +4,6 @@ import TextField from "../Components/TextField";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
-
 const UpdateAdmin = () => {
     const params = useParams();
     const admin = useSelector(state => state.admin);
