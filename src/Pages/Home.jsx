@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, removeAll } from "../Redux/Slices/UserSlice";
 import { useEffect } from "react";
 import { deleteAdmin, getUsers } from "../Redux/Slices/adminSlice";
+import toast from "react-hot-toast";
 
 
 const Home = () => {
@@ -30,12 +31,13 @@ const Home = () => {
     }
 
     const handleDelete = (id) => {
+        const toastId = toast.loading('Loading.....');
         fetch(`http://localhost:5000/delete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            toast.success('Successfully Deleted', { id: toastId })
             dispatch(deleteAdmin(id))
         })
     }
