@@ -3,6 +3,7 @@ import Button from "../Components/Button";
 import TextField from "../Components/TextField";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const UpdateAdmin = () => {
     const params = useParams();
@@ -14,6 +15,7 @@ const UpdateAdmin = () => {
    
     const handleUpdateAdmin = () => {
         const newAdmin = { name: values.name, email : values.email }
+        const toastId = toast.loading('Loading.....');
         fetch(`http://localhost:5000/update/${_id}`, {
             method: 'PUT',
             headers: {
@@ -23,7 +25,7 @@ const UpdateAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            toast.success('Admin Updated', { id: toastId })
             navigate('/')
         })
     }
