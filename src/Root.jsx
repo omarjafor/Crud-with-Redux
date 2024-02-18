@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import { Outlet } from "react-router-dom";
 
 
@@ -8,6 +9,7 @@ function Root() {
       <h1 className="text-3xl text-center font-bold underline">Crud with Redux Tolkit</h1>
       <Outlet></Outlet>
     </div>
+      <Toaster />
     </>
   )
 }

@@ -4,6 +4,7 @@ import TextField from "../Components/TextField";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { addAdmin } from "../Redux/Slices/adminSlice";
+import toast from "react-hot-toast";
 
 
 const AddAdmin = () => {
@@ -20,6 +21,7 @@ const AddAdmin = () => {
         const name = values.name;
         const email = values.email;
         const admin = { name, email }
+        const toastId = toast.loading('Loading...');
         fetch('http://localhost:5000/post', {
             method: 'POST',
             headers: {
@@ -29,7 +31,7 @@ const AddAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            toast.success('Admin Added', { id: toastId })
             dispatch(addAdmin(data))
         })
         navigate('/');
